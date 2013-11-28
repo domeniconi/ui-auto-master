@@ -21,43 +21,51 @@ class ClientsPage extends Page {
      * Page content elements
      */
     static content = {
-        newClientBtn {
-            waitFor{$("#btnCreateNewClient").isDisplayed()}
-            $("#btnCreateNewClient")
-        }
 
+        newClientBtn(required: false) { $("a#btnCreateNewClient")}
 
-        createBtn (required: false) {$("#SetupModule_btnCreateClient_input")}
-        /*
-        sendBtn(required:false) {$("#btn-send a")}
+        submitBtn(required: false) {$("#SetupModule_btnCreateClient_input")}
 
-        closeComposeEmail(required:false) {$(".compose-header .qr-card-actions a")}
+        clientName(required:false){$("input#SetupModule_txtClientName")}
 
-        saveDraftBtn(required: false) {$('#SaveDraftModalOverlay')}
+        clientInformationHeader(required:false) {$('h2', text:'Client Information')}
 
-        toField(required:false) {$('.cm-to-field')}
-
-        subject(required:false) {$('#subject-field')}
-
-        inboxBtn(required: false) {$(".btn-inbox")}
-
-        draftBtn(required: false) {$('.btn-drafts')}
-
-        selectAllDraftsBtn(required: false) {$("#btn-ml-cbox input")}
-
-        deleteBtn(required: false) {$('#btn-delete')}
-
-        emailsList(required: false) {$("#msg-list")}   */
     }
 
-    void newClient(){
+    void goToCreateNewClient(){
         newClientBtn.click()
-        waitFor {
-             createBtn.isDisplayed()
+        sleep(10000)
+        driver.switchTo().frame(0)
+        waitFor('slow'){
+            submitBtn.isDisplayed()
         }
     }
 
+    void submitNewClientInformation(){
+        submitBtn.click()
+        sleep(5000)
+        driver.switchTo().defaultContent()
+        driver.switchTo().frame(0)
+        driver.switchTo().frame(0)
 
+        waitFor('fast'){
+            clientInformationHeader.isDisplayed()
+        }
+    }
+
+    void onLoad(Page pPage){
+        waitFor('fast'){
+          $('iframe')[0].isDisplayed()
+        }
+        driver.switchTo().frame(0)
+        waitFor('slow'){
+            newClientBtn.isDisplayed()
+        }
+    }
+
+    void onUnload(Page pPage){
+        driver.switchTo().defaultContent()
+    }
   /*
         void sendMail(){
 

@@ -2,23 +2,35 @@ import org.openqa.selenium.Platform
 
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.firefox.FirefoxProfile
+import org.openqa.selenium.firefox.internal.ProfilesIni
 import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.remote.LocalFileDetector
 import org.openqa.selenium.remote.RemoteWebDriver
+import org.openqa.selenium.Alert
 
 
-domUser = 'DEVUSER';
-domPass = 'DEVPASSWORD'
-baseUrl = "http://${domUser}${domPass}URL"
+domUser = 'itt.internaluser01';
+domPass = 'Password1234'
+baseUrl = 'http://itt.internaluser01:Password1234@masterfiles-tstua.insidemedia.net/Home/Index#'
 autoClearCookies = false
 cacheDriverPerThread = true
 quitCacheDriverOnShutdown = true
 
-FirefoxProfile profile = new FirefoxProfile();
+ProfilesIni allProfiles = new ProfilesIni()
+
+FirefoxProfile profile = allProfiles.getProfile('default')//new FirefoxProfile();
 profile.setPreference("network.http.phishy-userpass-length", 255);
+profile.setPreference("network.automatic-ntlm-auth.trusteduris","masterfiles-tstua.insidemedia.net");
+
 
 // default is to use firefox
-driver = { new FirefoxDriver(profile) }
+driver = {
+    def d = new FirefoxDriver(profile)
+    d.manage().window().maximize()
+    return d
+}
+
+
 waiting {
 	timeout = 20
 
@@ -104,7 +116,7 @@ environments {
 		   drvr
 	   }
    }
-   
+
    'remote-ff'{
 	   driver = {
 		   DesiredCapabilities capabillities = DesiredCapabilities.firefox()

@@ -1,6 +1,7 @@
 package com.globant.projectodenico.ui.model
 
 import geb.Page
+import org.openqa.selenium.Alert
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,9 +12,7 @@ import geb.Page
  */
 class HomePage extends Page {
 
-    waitFor('slow'){
-        $('.selectedItem').isDisplayed()
-    }
+
     static at = { title == "Welcome to the Master File Administration Site" }
    /* private static final String DEFAULT_USERNAME = com.globant.projectodenico.common.Properties.usuario
     private static final String DEFAULT_PASSWORD = com.globant.projectodenico.common.Properties.password   */
@@ -23,44 +22,29 @@ class HomePage extends Page {
      */
     static content = {
 
-
-        clientBtn(to: ClientsPage) {$('.selectedItem')}
+        menu(required:false){$('#menu')}
+        clientBtn(to: ClientsPage) {$('li', text:'Clients').find('a')}
             /*signinBox(required:false){ $("#yreglg") }
             username(required: false){ signinBox.find("#username")}
             password(required: false){ signinBox.find("#passwd")}
             loginBtn(to: MailsPage) {signinBox.find("#submit button")} */
 
         }
-            void goToClients () {
-                clientBtn.click()
 
-                waitFor('slow') {
-            $('#btnCreateNewClient').isDisplayed()
+
+    void onLoad(Page pPage){
+
+        Alert alert = driver.switchTo().alert()
+        alert.accept()
+        waitFor('fast'){
+            menu.isDisplayed()
         }
     }
-    /**
-     * Types user and password data and clicks login button
-     */
-    /*
 
-    void login(Map credentials)
-    {
-        browser.clearCookiesQuietly()
-        //por si le queres pasar credenciales en los tests pero no esta bueno
-        String user = credentials?.username ?: configValue('username', DEFAULT_USERNAME)
-        String passwd = credentials?.password ?: configValue('password', DEFAULT_PASSWORD)
-
-        username << user
-        password << passwd
-
-        loginBtn.click()
-
-        waitFor('slow') {
-            $('.btn-compose').isDisplayed()
-        }
-
+    void goToClientsPage() {
+        clientBtn.click()
     }
-           */
+
     private String configValue(String name, String defaultValue) {
         browser.config.readValue name, defaultValue
     }
