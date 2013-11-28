@@ -77,10 +77,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="testng-smoke.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="testng-smoke.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testng-smoke.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="31" selection-start="174" selection-end="174" vertical-scroll-proportion="0.1003937">
+            <state line="3" column="31" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -97,10 +97,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GebConfig.groovy" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GebConfig.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/groovy/GebConfig.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="34" selection-start="1035" selection-end="1035" vertical-scroll-proportion="65.0">
+            <state line="28" column="34" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.98550725">
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -823,12 +823,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/GebConfig.groovy">
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/globant/projectodenico/ui/model/ClientsPage.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="34" selection-start="1035" selection-end="1035" vertical-scroll-proportion="65.0">
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state line="55" column="2" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testng-smoke.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="31" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -841,17 +846,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/globant/projectodenico/ui/model/ClientsPage.groovy">
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/GebConfig.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="2" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testng-smoke.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="31" selection-start="174" selection-end="174" vertical-scroll-proportion="0.1003937">
-          <folding />
+        <state line="28" column="34" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.98550725">
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
